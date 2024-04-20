@@ -74,7 +74,6 @@ public class MedicoController {
 		var medico = repository.getReferenceById(dados.id());
 		return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
 	}
-	
 	@SuppressWarnings("rawtypes")
 	@GetMapping("/{id}")
 	public ResponseEntity detalhar(@PathVariable Long id) {

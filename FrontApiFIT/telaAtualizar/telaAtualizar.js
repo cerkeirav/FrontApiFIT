@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var cadastroForm = document.getElementById("cadastrar-form");
-    if (cadastroForm) {
-        cadastroForm.addEventListener("submit", function(event) {
+    var atualizarForm = document.getElementById("atualizar-form");
+    if (atualizarForm) {
+        atualizarForm.addEventListener("submit", function(event) {
             event.preventDefault(); // Evita o envio padrão do formulário
             
             // Obtém os valores dos campos do formulário
+            var id = document.getElementById("id").value;
             var nome = document.getElementById("nome").value;
-            var crm = document.getElementById("crm").value;
             var telefone = document.getElementById("telefone").value;
             var email = document.getElementById("email").value;
             var logradouro = document.getElementById("logradouro").value;
@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
             var uf = document.getElementById("uf").value;
             var complemento = document.getElementById("complemento").value;
             var numero = document.getElementById("numero").value;
-            var especialidade = document.getElementById("opcoes").value;
+
 
             // Monta o objeto com os dados do médico
             var medicoData = {
+                id: id,
                 nome: nome,
-                crm: crm,
                 telefone: telefone,
                 email: email,
                 endereco: {
@@ -32,26 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     uf: uf,
                     complemento: complemento,
                     numero: numero
-                },
-                especialidade: especialidade
+                }
             };
 
             // Recupera o token do localStorage
             var token = localStorage.getItem('tokenJWT');
             console.log(token);
-            if (!token) {
-                alert("Token JWT não encontrado no armazenamento local.");
-                return; // Sai da função se o token não estiver presente
-            }
 
             // Define as configurações da solicitação, incluindo o token no cabeçalho de autorização e os dados do médico no corpo
             var requestOptions = {
-                method: 'POST', 
+                method: 'PUT', 
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                     'Origin': 'http://192.168.15.153:8081',
-                    'Access-Control-Request-Method':'POST'
+                    'Access-Control-Request-Method':'PUT'
                 },
                 body: JSON.stringify(medicoData)
             };
@@ -66,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .then(data => {
                     // Manipula os dados recebidos da API
-                    alert('Cadastro de médico realizado com sucesso! \n' + 'Informações do médico:\n\nNome: ' + data.nome + '\nTelefone: ' + data.telefone + '\nE-mail: ' + data.email + '\nCRM: ' + data.crm + '\nEscpecialidade: ' + data.especialidade);
+                    alert('Dados atualizados com sucesso! \n' + 'Informações do médico: \n\nID: ' + data.id + '\n\nNome: ' + data.nome + '\nTelefone: ' + data.telefone + '\nE-mail: ' + data.email + '\nCRM: ' + data.crm + '\nEscpecialidade: ' + data.especialidade);
                     
                     
                     window.location.href = "http://192.168.15.153:8081/telaInicial/telaInicial.html";
@@ -74,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 .catch(error => {
                     console.error('Erro:', error);
                     // Exibe mensagem de erro para o usuário, se necessário
-                    alert('Erro ao cadastrar médico. Por favor, tente novamente.');
+                    alert('Erro ao atualizar médico. Por favor, tente novamente.');
                 });
         });
     }

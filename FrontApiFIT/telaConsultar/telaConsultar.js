@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
       
             // Recupera o token do localStorage
             var token = localStorage.getItem("tokenJWT");
-            if (token === null) {
+            if (!token) {
                 alert("Token JWT não encontrado no armazenamento local.");
                 return; // Sai da função se o token não estiver presente
             }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+     <link rel="stylesheet" href="telaAtualizar.css">
+
+</head>
+<body>
+    <div class="atualizar-form">
+        <h2>Atualizar Dados</h2>
+        <form id="atualizar-form">
+            <div>
+                <label for="id">Id:</label>
+                <input type="id" id="id" name="id" placeholder="Digite o ID do médico" required>
+            </div>
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do médico">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite o e-mail do médico">
+            </div>
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" placeholder="Digite o telefone do médico">
+            </div>
+            <!-- Campos de endereço adicionados -->
+            <div>
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" placeholder="Digite o logradouro">
+            </div>
+            <div>
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro">
+            </div>
+            <div>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" placeholder="Digite o CEP">
+            </div>
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade">
+            </div>
+            <div>
+                <label for="uf">UF:</label>
+                <input type="text" id="uf" name="uf" placeholder="Digite a UF">
+            </div>
+            <div>
+                <label for="complemento">Complemento:</label>
+                <input type="text" id="complemento" name="complemento" placeholder="Digite o complemento">
+            </div>
+            <div>
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" placeholder="Digite o número">
+            </div>
+            <!-- Fim dos campos de endereço -->
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="telaAtualizar.js"></script>
+</body>
+</html>
