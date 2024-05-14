@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
             var id = document.getElementById("id").value;
             var nome = document.getElementById("nome").value;
             var telefone = document.getElementById("telefone").value;
-            var email = document.getElementById("email").value;
             var logradouro = document.getElementById("logradouro").value;
             var bairro = document.getElementById("bairro").value;
             var cep = document.getElementById("cep").value;
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 id: id,
                 nome: nome,
                 telefone: telefone,
-                email: email,
                 endereco: {
                     logradouro: logradouro,
                     bairro: bairro,
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .then(data => {
                     // Manipula os dados recebidos da API
-                    alert('Dados atualizados com sucesso! \n' + 'Informações do médico: \n\nID: ' + data.id + '\n\nNome: ' + data.nome + '\nTelefone: ' + data.telefone + '\nE-mail: ' + data.email + '\nCRM: ' + data.crm + '\nEscpecialidade: ' + data.especialidade);
+                    alert('Dados atualizados com sucesso! \n' + 'Informações do médico: \n\nID: ' + data.id + '\n\nNome: ' + data.nome + '\nTelefone: ' + data.telefone + '\nCRM: ' + data.crm + '\nEscpecialidade: ' + data.especialidade);
                     
                     
                     window.location.href = "http://192.168.15.153:8081/telaInicial/telaInicial.html";
