@@ -84,7 +84,11 @@ public class Medico {
 
 
 	public void excluir() {
-		this.ativo = false;
+	    if (this.ativo) {
+	        this.ativo = false;
+	    } else {
+	        throw new RuntimeException("O médico já possui status inativo.");
+	    }
 
 	}
 }

@@ -61,10 +61,10 @@ public class MedicoController {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@DeleteMapping("/{id}")
+	@PostMapping("/excluir")
 	@Transactional
-	public ResponseEntity excluir(@PathVariable Long id) {
-		var medico = repository.getReferenceById(id);
+	public ResponseEntity excluir(@RequestBody DadosConsulta dados) {
+		var medico = repository.getReferenceById(dados.id());
 		medico.excluir();
 		return ResponseEntity.noContent().build();
 	}
@@ -72,12 +72,6 @@ public class MedicoController {
 	@PostMapping("/consultar")
 	public ResponseEntity<DadosDetalhamentoMedico> consultar(@RequestBody @Valid DadosConsulta dados) {
 		var medico = repository.getReferenceById(dados.id());
-		return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
-	}
-	@SuppressWarnings("rawtypes")
-	@GetMapping("/{id}")
-	public ResponseEntity detalhar(@PathVariable Long id) {
-		var medico = repository.getReferenceById(id);
 		return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
 	}
 }
