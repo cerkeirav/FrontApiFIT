@@ -89,6 +89,5 @@ public class Medico {
 	    } else {
 	        throw new RuntimeException("O médico já possui status inativo.");
 	    }
-
 	}
 }
